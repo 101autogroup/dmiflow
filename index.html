@@ -69,6 +69,19 @@ header{position:sticky;top:0;z-index:40;backdrop-filter:blur(16px);background:rg
 .industry-icon{font-size:1.8rem;flex-shrink:0}
 .industry h3{font-size:1rem;margin-bottom:.3rem}
 .industry p{color:var(--muted);font-size:.88rem}
+
+/* Testimonial */
+.testimonial-section{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(59,130,246,.06),transparent)}
+.testimonial-card{display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:center;background:linear-gradient(135deg,rgba(17,24,39,.98),rgba(15,23,42,.94));border:1px solid var(--border);border-radius:24px;padding:2rem;box-shadow:0 24px 70px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.testimonial-card::before{content:'“';position:absolute;right:1.4rem;top:-.6rem;font-size:9rem;line-height:1;color:rgba(59,130,246,.14);font-weight:800}
+.testimonial-photo{width:190px;height:190px;object-fit:cover;object-position:center top;border-radius:22px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.38);background:#fff}
+.testimonial-quote{position:relative;z-index:1}
+.testimonial-quote blockquote{font-size:clamp(1.35rem,2.4vw,2rem);line-height:1.35;font-weight:800;margin:0 0 1rem;color:var(--text);letter-spacing:-.03em}
+.testimonial-quote p{color:var(--muted);font-size:1rem;margin:0}
+.testimonial-person{margin-top:1.25rem;display:flex;flex-direction:column;gap:.15rem}
+.testimonial-name{font-weight:800;font-size:1.05rem;color:#fff}
+.testimonial-title{color:var(--muted);font-size:.92rem}
+
 /* Pricing */
 .pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;align-items:start}
 .price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem 2rem;position:relative;transition:transform .2s}
@@ -111,9 +124,10 @@ footer a{color:var(--accent)}
 .hero{grid-template-columns:1fr}
 .hero-image{order:-1}
 .stats{grid-template-columns:repeat(2,1fr)}
-.features,.steps,.pricing-grid{grid-template-columns:1fr}
+.features,.steps,.pricing-grid,.testimonial-card{grid-template-columns:1fr}
 .industries{grid-template-columns:1fr}
 .demo-grid{grid-template-columns:1fr}
+.testimonial-photo{margin:auto}
 .demo-section{padding:2rem}
 .demo-form .form-row{flex-direction:column}
 .nav-links{display:none}
@@ -130,6 +144,7 @@ footer a{color:var(--accent)}
                 <a href="#features">Features</a>
                 <a href="#how">How It Works</a>
                 <a href="#industries">Industries</a>
+                <a href="#testimonial">Testimonial</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#faq">FAQ</a>
                 <a href="#demo" class="btn btn-primary">Get a Demo</a>
@@ -299,6 +314,29 @@ footer a{color:var(--accent)}
                 <div>
                     <h3>Property Management</h3>
                     <p>Field tenant calls, schedule showings, handle maintenance requests, and provide property information.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Testimonial -->
+<section class="testimonial-section" id="testimonial">
+    <div class="wrap">
+        <div class="section-header">
+            <div class="section-label">Local Testimonial</div>
+            <div class="section-title">Trusted by Oxnard business leaders</div>
+            <p class="section-sub">A short note from a local professional who understands the value of responsive customer service.</p>
+        </div>
+        <div class="testimonial-card">
+            <img class="testimonial-photo" src="assets/omar-velazquez-testimonial.jpg" alt="Omar Velazquez, President of Keller Williams Realty in Oxnard CA" />
+            <div class="testimonial-quote">
+                <blockquote>“DMI Flow is professional, responsive, and easy to work with. It gives businesses a smarter way to handle calls and create a better customer experience.”</blockquote>
+                <p>Local businesses need fast communication and reliable follow-up. DMI Flow helps make that possible.</p>
+                <div class="testimonial-person">
+                    <span class="testimonial-name">Omar Velazquez</span>
+                    <span class="testimonial-title">President, Keller Williams Realty — Oxnard, CA</span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,882 @@
+
+
+index (10).html
+File
+redo my one page html site and incorporate the photo as design ,  it's great as the background, looks great
+
+Thought for 1m 26s
+I rebuilt the page around the new shop image as the hero background, with a darker glass overlay, stronger automotive focus, and cleaner conversion flow. I used your current one-page HTML as the base structure and aligned the messaging direction with the current Auto Shop Receptionist positioning around auto repair shops, 24/7 answering, appointment booking, common repair questions, and phone/calendar integration. 
+
+Save your generated image in the same folder as the HTML and name it:
+
+dmiflow-bg.png
+Then replace your file with this:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DMIFlow | AI Receptionist for Auto Shops</title>
+  <meta
+    name="description"
+    content="AI receptionist and workflow automation for auto repair shops. Answer more calls, book more jobs, and keep your bays full."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #07111b;
+      --bg-2: #0a1626;
+      --panel: rgba(7, 16, 29, 0.72);
+      --panel-2: rgba(10, 20, 35, 0.84);
+      --line: rgba(122, 201, 255, 0.16);
+      --text: #f5f9ff;
+      --muted: #b4c2d7;
+      --blue: #64d3ff;
+      --blue-2: #4aa8ff;
+      --cyan: #7ef0ff;
+      --teal: #35e4c6;
+      --glow: 0 24px 80px rgba(0, 0, 0, 0.45);
+      --radius: 24px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(100, 211, 255, 0.10), transparent 30%),
+        radial-gradient(circle at 90% 20%, rgba(74, 168, 255, 0.10), transparent 25%),
+        linear-gradient(180deg, #06111b 0%, #08131f 100%);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 700;
+      transition: 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #04111d;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      box-shadow: 0 14px 36px rgba(100, 211, 255, 0.22);
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      backdrop-filter: blur(12px);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 11, 18, 0.58);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, rgba(100,211,255,0.18), rgba(74,168,255,0.10));
+      box-shadow: inset 0 0 26px rgba(100, 211, 255, 0.12);
+    }
+
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+    }
+
+    .brand-mark::before {
+      inset: 9px 10px auto 10px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      box-shadow: 0 9px 0 rgba(100,211,255,0.72), 0 18px 0 rgba(74,168,255,0.65);
+    }
+
+    .brand-mark::after {
+      width: 4px;
+      height: 24px;
+      right: 10px;
+      top: 10px;
+      background: linear-gradient(180deg, var(--blue), transparent);
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 24px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section { padding: 92px 0; }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(5, 11, 18, 0.92) 0%, rgba(5, 11, 18, 0.82) 38%, rgba(5, 11, 18, 0.52) 65%, rgba(5, 11, 18, 0.76) 100%),
+        radial-gradient(circle at 18% 30%, rgba(100, 211, 255, 0.18), transparent 28%),
+        url("dmiflow-bg.png") center center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 56px 56px;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 28px;
+      align-items: end;
+      padding: 120px 0 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: #d9efff;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--teal);
+      box-shadow: 0 0 0 6px rgba(53, 228, 198, 0.12);
+    }
+
+    h1, h2, h3 { margin: 0 0 16px; line-height: 1.02; }
+    h1 {
+      max-width: 11ch;
+      font-size: clamp(3rem, 6vw, 6rem);
+      letter-spacing: -0.06em;
+    }
+    h2 {
+      font-size: clamp(2rem, 3vw, 3.25rem);
+      letter-spacing: -0.04em;
+    }
+    h3 {
+      font-size: 1.08rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.8;
+      margin: 0 0 28px;
+    }
+
+    .hero-copy .cta-row,
+    .nav-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 28px;
+      max-width: 760px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(8, 18, 30, 0.56);
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--glow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.6rem;
+      letter-spacing: -0.05em;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .hero-card {
+      justify-self: end;
+      width: min(100%, 440px);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(7, 17, 30, 0.76), rgba(7, 15, 25, 0.88));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+    }
+
+    .card-head {
+      padding: 20px 22px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card-body {
+      padding: 20px 22px 22px;
+    }
+
+    .mini {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.74rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .audio {
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 16px;
+    }
+
+    .audio-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .play {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #06111b;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      font-size: 1rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .wave {
+      height: 58px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 10% 50%, rgba(100, 211, 255, 0.75), transparent 10%),
+        radial-gradient(circle at 24% 50%, rgba(100, 211, 255, 0.88), transparent 12%),
+        radial-gradient(circle at 38% 50%, rgba(74, 168, 255, 0.88), transparent 11%),
+        radial-gradient(circle at 52% 50%, rgba(126, 240, 255, 0.82), transparent 11%),
+        radial-gradient(circle at 66% 50%, rgba(74, 168, 255, 0.88), transparent 12%),
+        radial-gradient(circle at 80% 50%, rgba(100, 211, 255, 0.75), transparent 10%),
+        rgba(7, 15, 25, 0.88);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wave::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.10), transparent);
+      transform: translateX(-120%);
+      animation: shimmer 5s linear infinite;
+    }
+
+    @keyframes shimmer {
+      to { transform: translateX(120%); }
+    }
+
+    .flow-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .flow-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #d8e7f8;
+    }
+
+    .flow-num {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #06111b;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .section-head p,
+    .copy {
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .panel,
+    .feature,
+    .timeline,
+    .quote,
+    .cta-panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--glow);
+      backdrop-filter: blur(16px);
+    }
+
+    .feature,
+    .panel,
+    .quote {
+      padding: 24px;
+    }
+
+    .feature-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, rgba(100,211,255,0.15), rgba(74,168,255,0.16));
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 1.2rem;
+    }
+
+    .feature p,
+    .panel p,
+    .quote p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .timeline {
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 34px;
+      top: 38px;
+      bottom: 38px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(100,211,255,0.8), rgba(74,168,255,0.22), rgba(53,228,198,0.75));
+    }
+
+    .step {
+      position: relative;
+      padding-left: 74px;
+      margin-bottom: 24px;
+    }
+
+    .step:last-child { margin-bottom: 0; }
+
+    .badge {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #04111d;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--blue));
+      box-shadow: 0 0 0 10px rgba(100, 211, 255, 0.10);
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .integration-board {
+      padding: 28px;
+      border-radius: 28px;
+      background:
+        linear-gradient(180deg, rgba(8, 18, 31, 0.90), rgba(7, 15, 25, 0.94)),
+        url("dmiflow-bg.png") center center / cover no-repeat;
+      background-blend-mode: normal, soft-light;
+      border: 1px solid var(--line);
+      box-shadow: var(--glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .integration-board::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(6, 14, 22, 0.55), rgba(6, 14, 22, 0.75));
+      pointer-events: none;
+    }
+
+    .integration-board > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+
+    .chip {
+      padding: 12px 15px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      color: #e9f3ff;
+      font-size: 0.92rem;
+    }
+
+    .quote {
+      margin-top: 20px;
+      background: linear-gradient(180deg, rgba(100,211,255,0.07), rgba(74,168,255,0.04));
+    }
+
+    .quote strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .cta-panel {
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(100,211,255,0.10), rgba(74,168,255,0.10)),
+        rgba(8, 18, 30, 0.84);
+    }
+
+    footer {
+      padding: 30px 0 48px;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .section-head,
+      .split,
+      .cta-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        justify-self: start;
+        max-width: 560px;
+      }
+
+      .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; max-width: 420px; }
+    }
+
+    @media (max-width: 860px) {
+      nav ul { display: none; }
+      .nav-cta .btn-secondary { display: none; }
+      .hero {
+        min-height: auto;
+        background-position: 62% center;
+      }
+      section { padding: 72px 0; }
+      .grid-4 { grid-template-columns: 1fr; }
+      .cta-panel { padding: 28px; }
+      .timeline,
+      .integration-board,
+      .feature,
+      .panel,
+      .quote { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="DMIFlow home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>
+          DMIFLOW
+          <small>AUTO SHOP AI RECEPTIONIST</small>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#integrations">Integrations</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="#integrations">See Integrations</a>
+        <a class="btn btn-primary" href="#contact">Book a Demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="dot"></span> AI receptionist built for busy auto repair shops</div>
+          <h1>Never miss a call. Book more jobs.</h1>
+          <p class="lead">
+            DMIFlow helps auto shops answer calls professionally, capture customer details,
+            book appointments, and trigger the right follow-up without pulling your team off the floor.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:contact@autoshopreceptionist.com">Schedule a Demo</a>
+            <a class="btn btn-secondary" href="tel:+18054010258">Call 805-401-0258</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Answer after-hours, overflow, and missed calls automatically.</span>
+            </div>
+            <div class="stat">
+              <strong>Faster</strong>
+              <span>Capture leads, repair questions, and booking requests in one flow.</span>
+            </div>
+            <div class="stat">
+              <strong>Cleaner</strong>
+              <span>Push call outcomes into calendars, CRM, and shop workflows.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="AI receptionist preview">
+          <div class="card-head">
+            <div class="mini">Live workflow preview</div>
+            <h3>Front Desk Automation Console</h3>
+          </div>
+          <div class="card-body">
+            <div class="audio">
+              <div class="audio-top">
+                <div>
+                  <div class="mini" style="margin:0 0 4px;">Playing to caller</div>
+                  <strong style="display:block;font-size:1rem;">Professional AI greeting active</strong>
+                </div>
+                <div class="play">▶</div>
+              </div>
+              <div class="wave" aria-hidden="true"></div>
+            </div>
+
+            <div class="flow-list">
+              <div class="flow-item">
+                <span class="flow-num">1</span>
+                <span>Answer the call instantly and identify what the customer needs.</span>
+              </div>
+              <div class="flow-item">
+                <span class="flow-num">2</span>
+                <span>Capture vehicle, concern, callback details, and scheduling preference.</span>
+              </div>
+              <div class="flow-item">
+                <span class="flow-num">3</span>
+                <span>Send the outcome to your calendar, CRM, inbox, or team workflow.</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">What it handles</div>
+            <h2>A website that looks like your product actually works in a real shop.</h2>
+          </div>
+          <p>
+            This redesign leans into the strongest visual you generated: a busy mechanic shop,
+            a front-facing desk, and an AI receptionist interface. It gives the brand a more specific,
+            automotive-first feel instead of a generic automation page.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="feature">
+            <div class="feature-icon">☎</div>
+            <h3>Call Answering</h3>
+            <p>Handle missed calls, after-hours calls, and front-desk overflow with a consistent, professional voice.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🗓</div>
+            <h3>Appointment Booking</h3>
+            <p>Collect customer details and move qualified callers toward a scheduled visit without extra back-and-forth.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🔧</div>
+            <h3>Repair Question Intake</h3>
+            <p>Capture common concerns and route the call outcome into the right next step for your team.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">⚙</div>
+            <h3>Workflow Automation</h3>
+            <p>Turn phone conversations into structured action across your internal tools and operating process.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap split">
+        <div class="timeline">
+          <div class="eyebrow">How it works</div>
+          <h2>From incoming call to booked job.</h2>
+
+          <div class="step">
+            <div class="badge">1</div>
+            <h3>We map your shop flow</h3>
+            <p>We define how calls should be answered, what details should be collected, and where your current bottlenecks live.</p>
+          </div>
+
+          <div class="step">
+            <div class="badge">2</div>
+            <h3>We train your AI receptionist</h3>
+            <p>The agent is tailored to your services, scheduling rules, customer experience, and escalation logic.</p>
+          </div>
+
+          <div class="step">
+            <div class="badge">3</div>
+            <h3>We connect your tools</h3>
+            <p>Call outcomes can flow into calendars, CRM, forms, notifications, and internal follow-up steps.</p>
+          </div>
+
+          <div class="step">
+            <div class="badge">4</div>
+            <h3>We improve from real conversations</h3>
+            <p>As live calls come in, the call flow can be refined to make the system sharper over time.</p>
+          </div>
+        </div>
+
+        <div class="integration-board" id="integrations">
+          <div class="eyebrow">Built for integrations</div>
+          <h2>Designed to sit on top of your current operation.</h2>
+          <p class="copy">
+            Instead of making the page feel abstract, this version uses the generated shop image as part of the interface system itself.
+            The result feels more like a real product in a real bay environment.
+          </p>
+
+          <div class="chip-row">
+            <span class="chip">Phone forwarding</span>
+            <span class="chip">CRM sync</span>
+            <span class="chip">Appointment booking</span>
+            <span class="chip">Email + SMS alerts</span>
+            <span class="chip">Lead intake</span>
+            <span class="chip">Custom automations</span>
+            <span class="chip">Bilingual flows</span>
+            <span class="chip">Shop workflow routing</span>
+          </div>
+
+          <div class="grid-3">
+            <article class="panel">
+              <h3>For the front desk</h3>
+              <p>Reduce interruptions, answer more calls, and give customers a faster first response.</p>
+            </article>
+            <article class="panel">
+              <h3>For the service team</h3>
+              <p>Keep techs focused on the work while the system handles repetitive intake and scheduling steps.</p>
+            </article>
+            <article class="panel">
+              <h3>For management</h3>
+              <p>Get cleaner call handling, better visibility, and more consistent follow-up across the shop.</p>
+            </article>
+          </div>
+
+          <div class="quote">
+            <strong>The goal is simple.</strong>
+            <p>When someone calls your shop, the conversation should turn into action instead of getting lost in voicemail, hold time, or sticky notes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta-panel" id="contact">
+          <div>
+            <div class="eyebrow">Ready to launch this look?</div>
+            <h2>Use this page as your new one-page site and drop in the image as the hero background.</h2>
+            <p class="copy">
+              This layout is built to make that generated AI receptionist image do the heavy lifting.
+              It should feel stronger immediately as a landing page for DMIFlow and Auto Shop Receptionist.
+            </p>
+          </div>
+
+          <div class="nav-cta">
+            <a class="btn btn-primary" href="mailto:contact@autoshopreceptionist.com">Book a Demo</a>
+            <a class="btn btn-secondary" href="tel:+18054010258">805-401-0258</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <div>© 2026 DMIFlow — AI Receptionist + Workflow Automation for Auto Shops</div>
+      <div>One-page redesign</div>
+    </div>
+  </footer>
+</body>
+</html>
+If you want, I can

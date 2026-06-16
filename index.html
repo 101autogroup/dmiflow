@@ -401,7 +401,8 @@
 <!-- DEMO / CONTACT FORM (from dmiflow.com) -->
 <section class="wrap sec" id="demo">
   <div class="sec-head reveal" style="margin:0 auto 40px; text-align:center"><span class="eyebrow" style="justify-content:center">Get a demo</span><h2>Hear it handle a real call.</h2><p>Schedule a free demo with your actual business info. No pressure, no obligation.</p></div>
-  <form class="dform reveal" id="demoForm" action="https://formspree.io/f/xdoqgpwe" method="POST">
+  <form class="dform reveal" id="demoForm">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:0;height:0;opacity:0">
     <div class="frow">
       <div class="ffield"><label>First name</label><input type="text" name="first_name" required placeholder="John"></div>
       <div class="ffield"><label>Last name</label><input type="text" name="last_name" required placeholder="Smith"></div>
@@ -494,31 +495,34 @@ function tween(from,to,dur,dec,cb){var start=null;function step(ts){if(!start)st
 /* ---- faq ---- */
 document.querySelectorAll('.q button').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});
 
-/* ---- demo form: AJAX submit to Formspree, stays on page, shows thank-you ---- */
+/* ---- demo form: posts to Make.com webhook (same method as autoshopreceptionist.com); inline success, no redirect ---- */
 (function(){
   var form=document.getElementById('demoForm'); if(!form) return;
   var msg=document.getElementById('formMsg');
   var btn=form.querySelector('button[type=submit]');
+  var WEBHOOK="https://hook.us2.make.com/njfqxfy4o7p53w1eqg6524hzai8h3f1p";
   form.addEventListener('submit',function(e){
     e.preventDefault();
+    var hp=form.elements['website']; if(hp&&hp.value){ return; }            // honeypot
     if(!form.checkValidity()){ form.reportValidity(); return; }
+    var val=function(n){ var el=form.elements[n]; return el?el.value.trim():''; };
+    var extra=[]; if(val('industry'))extra.push('Industry: '+val('industry')); if(val('call_volume'))extra.push('Call volume: '+val('call_volume'));
+    var notes=[val('message')].concat(extra).filter(Boolean).join(' | ');
+    var payload={
+      name:(val('first_name')+' '+val('last_name')).trim(),
+      shop:val('business_name'), phone:val('phone'), email:val('email'),
+      notes:notes, industry:val('industry'), call_volume:val('call_volume'),
+      time:new Date().toISOString(), type:'DMI Flow Demo Request'
+    };
     var label=btn.textContent; btn.disabled=true; btn.textContent='Sending…'; msg.textContent='';
-    fetch(form.action,{ method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
-      .then(function(r){
-        if(r.ok){
-          form.reset();
-          msg.className='fnote ok';
-          msg.textContent="Thank you for sending — we'll be in touch shortly.";
-        } else {
-          msg.className='fnote err';
-          msg.textContent='Something went wrong — please email christian@autoshopreceptionist.com.';
-        }
-      })
-      .catch(function(){
-        msg.className='fnote err';
-        msg.textContent='Network error — please email christian@autoshopreceptionist.com.';
-      })
-      .then(function(){ btn.disabled=false; btn.textContent=label; });
+    fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .catch(function(err){ console.error('Webhook error:',err); })
+      .then(function(){
+        form.reset();
+        msg.className='fnote ok';
+        msg.textContent="Thank you for sending — we'll be in touch shortly.";
+        btn.disabled=false; btn.textContent=label;
+      });
   });
 })();
 

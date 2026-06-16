@@ -3,512 +3,523 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DMI Flow — AI Voice Agents for Your Business</title>
-<meta name="description" content="DMI Flow provides AI-powered voice agents that answer calls 24/7, book appointments, and automate workflows for small and mid-sized businesses." />
+<title>DMI Flow — Never miss a call. Never lose a customer.</title>
+<meta name="description" content="DMI Flow's AI voice agent answers every call 24/7, books appointments, and automates your front desk for small and mid-sized businesses." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0a0e1a;--card:#111827;--border:#1e293b;--text:#f1f5f9;--muted:#94a3b8;--accent:#3b82f6;--accent2:#6366f1;--green:#22c55e;--radius:12px;--max:1140px}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.wrap{width:min(100% - 32px,var(--max));margin:auto}
-/* Header */
-header{position:sticky;top:0;z-index:40;backdrop-filter:blur(16px);background:rgba(10,14,26,.85);border-bottom:1px solid var(--border);padding:.8rem 0}
-.nav{display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.25rem}
-.logo span{color:var(--accent)}
-.nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:.9rem;color:var(--muted);transition:color .2s}
-.nav-links a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.6rem;border-radius:999px;font-weight:600;font-size:.95rem;cursor:pointer;border:none;transition:all .2s}
-.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff}
-.btn-primary:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(59,130,246,.3)}
-.btn-outline{border:1.5px solid var(--border);color:var(--text);background:transparent}
-.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
-/* Hero */
-.hero{padding:5rem 0 3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.hero-text h1{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:1rem}
-.hero-text h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.hero-text p{font-size:1.15rem;color:var(--muted);margin-bottom:2rem;max-width:520px}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-image{position:relative}
-.hero-image img{border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,197,94,.12);color:var(--green);padding:.4rem 1rem;border-radius:999px;font-size:.85rem;font-weight:500;margin-bottom:1.5rem}
-.badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-/* Stats bar */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:3rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin:3rem 0}
-.stat{text-align:center}
-.stat .num{font-size:2rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.stat .label{color:var(--muted);font-size:.85rem;margin-top:.25rem}
-/* Sections */
-.section{padding:5rem 0}
-.section-header{text-align:center;margin-bottom:3rem}
-.section-label{display:inline-block;background:rgba(59,130,246,.12);color:var(--accent);padding:.35rem 1rem;border-radius:999px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
-.section-title{font-size:2.2rem;font-weight:800;margin-bottom:1rem}
-.section-sub{color:var(--muted);max-width:600px;margin:0 auto;font-size:1.05rem}
-/* Features */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.feature-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:transform .2s}
-.feature-card:hover{transform:translateY(-4px)}
-.feature-icon{font-size:2rem;margin-bottom:1rem}
-.feature-card h3{font-size:1.1rem;margin-bottom:.5rem}
-.feature-card p{color:var(--muted);font-size:.92rem}
-/* How it works */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;counter-reset:step}
-.step{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;position:relative}
-.step::before{counter-increment:step;content:counter(step);position:absolute;top:-12px;left:20px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
-.step h3{margin-top:.5rem;margin-bottom:.5rem;font-size:1.05rem}
-.step p{color:var(--muted);font-size:.9rem}
-/* Industries */
-.industries{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
-.industry{display:flex;gap:1rem;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem}
-.industry-icon{font-size:1.8rem;flex-shrink:0}
-.industry h3{font-size:1rem;margin-bottom:.3rem}
-.industry p{color:var(--muted);font-size:.88rem}
+  :root{
+    --ink:#0A0D12; --ink2:#0E131A; --panel:#141A23; --panel2:#1A222D;
+    --line:rgba(255,255,255,.07); --line2:rgba(255,255,255,.13);
+    --text:#EEF2F7; --dim:#909DAD; --faint:#586675;
+    --amber:#FF8A2B; --amber2:#FFB16A; --amberglow:rgba(255,138,43,.32);
+    --green:#2FE08A; --green2:#73F0B0; --greenglow:rgba(47,224,138,.26);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth; scroll-padding-top:88px}
+  body{background:var(--ink); color:var(--text); font-family:'Inter',system-ui,sans-serif; font-size:17px; line-height:1.62; -webkit-font-smoothing:antialiased; overflow-x:hidden}
+  body::before{content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+    background:
+      radial-gradient(820px 440px at 80% -8%, rgba(255,138,43,.12), transparent 62%),
+      radial-gradient(700px 520px at 4% 26%, rgba(47,224,138,.055), transparent 60%),
+      linear-gradient(transparent 0 47px, rgba(255,255,255,.013) 47px 48px),
+      linear-gradient(90deg, transparent 0 47px, rgba(255,255,255,.013) 47px 48px);
+    background-size:auto,auto,48px 48px,48px 48px}
+  body::after{content:""; position:fixed; inset:0; z-index:0; pointer-events:none; box-shadow:inset 0 0 240px 40px rgba(0,0,0,.55)}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px; position:relative; z-index:1}
+  a{color:inherit; text-decoration:none}
+  .eyebrow{font-family:'JetBrains Mono',monospace; font-size:11.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); display:inline-flex; align-items:center; gap:10px}
+  .eyebrow::before{content:""; width:24px; height:1px; background:currentColor; opacity:.65}
+  .eyebrow.g{color:var(--green)}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif; font-weight:700; line-height:1.05; letter-spacing:-.022em}
+  .mono{font-family:'JetBrains Mono',monospace}
+  .btn{position:relative; display:inline-flex; align-items:center; gap:9px; cursor:pointer; border:none; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:15.5px; padding:15px 26px; border-radius:11px; transition:transform .16s, box-shadow .22s, background .2s, border-color .2s; overflow:hidden}
+  .btn-primary{background:var(--amber); color:#1c0e00}
+  .btn-primary::after{content:""; position:absolute; top:0; left:-120%; width:60%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-18deg); transition:left .6s}
+  .btn-primary:hover{background:var(--amber2); transform:translateY(-2px); box-shadow:0 16px 42px var(--amberglow)}
+  .btn-primary:hover::after{left:140%}
+  .btn-ghost{background:transparent; color:var(--text); border:1px solid var(--line2)}
+  .btn-ghost:hover{border-color:var(--text); transform:translateY(-2px)}
+  :focus-visible{outline:2px solid var(--amber); outline-offset:3px; border-radius:6px}
 
-/* Testimonial */
-.testimonial-section{padding:5rem 0;background:linear-gradient(180deg,transparent,rgba(59,130,246,.06),transparent)}
-.testimonial-card{display:grid;grid-template-columns:220px 1fr;gap:2rem;align-items:center;background:linear-gradient(135deg,rgba(17,24,39,.98),rgba(15,23,42,.94));border:1px solid var(--border);border-radius:24px;padding:2rem;box-shadow:0 24px 70px rgba(0,0,0,.35);position:relative;overflow:hidden}
-.testimonial-card::before{content:'“';position:absolute;right:1.4rem;top:-.6rem;font-size:9rem;line-height:1;color:rgba(59,130,246,.14);font-weight:800}
-.testimonial-photo{width:190px;height:190px;object-fit:cover;object-position:center top;border-radius:22px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.38);background:#fff}
-.testimonial-quote{position:relative;z-index:1}
-.testimonial-quote blockquote{font-size:clamp(1.35rem,2.4vw,2rem);line-height:1.35;font-weight:800;margin:0 0 1rem;color:var(--text);letter-spacing:-.03em}
-.testimonial-quote p{color:var(--muted);font-size:1rem;margin:0}
-.testimonial-person{margin-top:1.25rem;display:flex;flex-direction:column;gap:.15rem}
-.testimonial-name{font-weight:800;font-size:1.05rem;color:#fff}
-.testimonial-title{color:var(--muted);font-size:.92rem}
+  nav{position:sticky; top:0; z-index:60; backdrop-filter:blur(16px); background:rgba(10,13,18,.74); border-bottom:1px solid var(--line)}
+  .navin{display:flex; align-items:center; justify-content:space-between; height:70px}
+  .brand{display:flex; align-items:center; gap:11px; font-family:'Space Grotesk'; font-weight:700; font-size:20px; letter-spacing:-.01em}
+  .livedot{width:9px; height:9px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green); animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 var(--greenglow),0 0 9px var(--green)}70%{box-shadow:0 0 0 8px transparent,0 0 9px var(--green)}100%{box-shadow:0 0 0 0 transparent,0 0 9px var(--green)}}
+  .navlinks{display:flex; gap:30px; align-items:center; font-size:14.5px; color:var(--dim)}
+  .navlinks a{transition:color .2s} .navlinks a:hover{color:var(--text)}
+  .nav-cta{padding:10px 18px; font-size:14px}
+  @media(max-width:860px){.navlinks{display:none}}
 
-/* Pricing */
-.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;align-items:start}
-.price-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem 2rem;position:relative;transition:transform .2s}
-.price-card:hover{transform:translateY(-4px)}
-.price-card.featured{border-color:var(--accent);box-shadow:0 0 40px rgba(59,130,246,.15)}
-.price-card.featured::before{content:'Most Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;padding:.3rem 1.2rem;border-radius:999px;font-size:.75rem;font-weight:600}
-.price-card .tier{font-size:.85rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
-.price-card .price{font-size:2.5rem;font-weight:800;margin-bottom:.3rem}
-.price-card .price span{font-size:.95rem;font-weight:400;color:var(--muted)}
-.price-card .desc{color:var(--muted);font-size:.9rem;margin-bottom:1.5rem}
-.price-card ul{list-style:none;margin-bottom:2rem}
-.price-card li{padding:.4rem 0;font-size:.9rem;color:var(--muted)}
-.price-card li::before{content:'✓ ';color:var(--green);font-weight:700;margin-right:.5rem}
-/* FAQ */
-.faq-list{max-width:740px;margin:0 auto}
-.faq-item{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:.8rem;overflow:hidden}
-.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.5rem;cursor:pointer;font-weight:600;font-size:1rem;background:var(--card)}
-.faq-q::after{content:'+';font-size:1.4rem;color:var(--muted);transition:transform .2s}
-.faq-item.open .faq-q::after{transform:rotate(45deg);color:var(--accent)}
-.faq-a{padding:0 1.5rem;max-height:0;overflow:hidden;transition:all .3s;color:var(--muted);font-size:.95rem}
-.faq-item.open .faq-a{padding:0 1.5rem 1.2rem;max-height:500px}
-/* Demo */
-.demo-section{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:3rem}
-.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.demo-info h2{font-size:2rem;font-weight:800;margin-bottom:1rem}
-.demo-info p{color:var(--muted);margin-bottom:1.5rem}
-.demo-info ul{list-style:none}
-.demo-info li{padding:.3rem 0;color:var(--muted);font-size:.92rem}
-.demo-info li::before{content:'✓ ';color:var(--green);font-weight:700;margin-right:.5rem}
-.demo-form label{display:block;font-size:.85rem;font-weight:500;margin-bottom:.3rem;color:var(--muted)}
-.demo-form input,.demo-form select,.demo-form textarea{width:100%;padding:.7rem 1rem;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-family:inherit;font-size:.9rem;margin-bottom:1rem}
-.demo-form .form-row{display:flex;gap:1rem}
-.demo-form .form-row>div{flex:1}
-/* Footer */
-footer{border-top:1px solid var(--border);padding:3rem 0;text-align:center}
-footer p{color:var(--muted);font-size:.85rem}
-footer a{color:var(--accent)}
-/* Responsive */
-@media(max-width:900px){
-.hero{grid-template-columns:1fr}
-.hero-image{order:-1}
-.stats{grid-template-columns:repeat(2,1fr)}
-.features,.steps,.pricing-grid,.testimonial-card{grid-template-columns:1fr}
-.industries{grid-template-columns:1fr}
-.demo-grid{grid-template-columns:1fr}
-.testimonial-photo{margin:auto}
-.demo-section{padding:2rem}
-.demo-form .form-row{flex-direction:column}
-.nav-links{display:none}
-}
+  .hero{padding:78px 0 40px; display:grid; grid-template-columns:1.04fr .96fr; gap:54px; align-items:center}
+  .hero h1{font-size:clamp(2.55rem,5.4vw,4.45rem); margin:22px 0 0}
+  .hero h1 .lost{color:var(--amber); white-space:nowrap}
+  .hero p.sub{font-size:clamp(1.06rem,1.5vw,1.26rem); color:var(--dim); max-width:530px; margin:22px 0 0}
+  .hero-cta{display:flex; gap:13px; margin-top:32px; flex-wrap:wrap}
+  .trust{display:flex; gap:30px; margin-top:36px; flex-wrap:wrap; align-items:center}
+  .trust .t{display:flex; flex-direction:column; gap:3px}
+  .trust .t b{font-family:'JetBrains Mono'; font-weight:700; font-size:17px; color:var(--text); display:flex; gap:3px}
+  .trust .t span{font-size:12px; color:var(--faint)}
+  .stars{display:inline-flex; gap:2px} .stars svg{width:15px; height:15px; fill:var(--amber)}
+  @media(max-width:900px){.hero{grid-template-columns:1fr; gap:38px; padding:52px 0 30px}}
+
+  .console{background:linear-gradient(180deg,var(--panel),var(--ink2)); border:1px solid var(--line2); border-radius:22px; padding:8px; box-shadow:0 44px 100px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.05); position:relative}
+  .console-inner{background:rgba(6,9,13,.55); border:1px solid var(--line); border-radius:16px; padding:20px; position:relative; overflow:hidden}
+  .console-inner::before{content:""; position:absolute; top:0; left:0; right:0; height:130px; background:radial-gradient(360px 110px at 50% -10%, rgba(255,138,43,.16), transparent 70%)}
+  .csl-head{display:flex; align-items:center; justify-content:space-between; position:relative; z-index:1}
+  .csl-id{font-family:'JetBrains Mono'; color:var(--dim); font-size:12.5px; display:flex; align-items:center; gap:9px}
+  .wave{display:inline-flex; align-items:flex-end; gap:2px; height:14px}
+  .wave i{width:2px; height:3px; background:var(--green); border-radius:2px; opacity:.35}
+  .console.live .wave i{animation:wv .9s ease-in-out infinite}
+  .console.live .wave i:nth-child(2){animation-delay:.12s} .console.live .wave i:nth-child(3){animation-delay:.24s}
+  .console.live .wave i:nth-child(4){animation-delay:.36s} .console.live .wave i:nth-child(5){animation-delay:.48s}
+  @keyframes wv{0%,100%{height:3px; opacity:.35}50%{height:13px; opacity:1}}
+  .timer{font-family:'JetBrains Mono'; font-size:12.5px; color:var(--faint)}
+  .status{font-family:'JetBrains Mono'; font-size:11px; font-weight:700; letter-spacing:.1em; padding:5px 11px; border-radius:30px; display:inline-flex; align-items:center; gap:7px; transition:.3s}
+  .status .dot{width:7px; height:7px; border-radius:50%}
+  .status.ring{background:rgba(255,138,43,.13); color:var(--amber2)} .status.ring .dot{background:var(--amber); animation:blink .8s infinite}
+  .status.ans{background:rgba(47,224,138,.13); color:var(--green2)} .status.ans .dot{background:var(--green)}
+  @keyframes blink{50%{opacity:.25}}
+  .convo{margin-top:18px; min-height:272px; display:flex; flex-direction:column; gap:10px; position:relative; z-index:1}
+  .bub{max-width:84%; padding:11px 14px; border-radius:14px; font-size:14.5px; line-height:1.45; opacity:0; transform:translateY(8px); animation:rise .42s forwards}
+  @keyframes rise{to{opacity:1; transform:none}}
+  .bub.caller{align-self:flex-start; background:var(--panel2); border:1px solid var(--line); border-bottom-left-radius:4px}
+  .bub.ai{align-self:flex-end; background:rgba(255,138,43,.1); border:1px solid rgba(255,138,43,.26); border-bottom-right-radius:4px; color:#ffe7d1}
+  .bub .who{display:block; font-family:'JetBrains Mono'; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.5; margin-bottom:3px}
+  .booked{margin-top:auto; display:flex; align-items:center; gap:13px; background:rgba(47,224,138,.09); border:1px solid rgba(47,224,138,.28); border-radius:13px; padding:13px 15px; opacity:0; transform:translateY(10px); animation:rise .5s forwards}
+  .booked .chk{width:34px; height:34px; border-radius:9px; background:var(--green); color:#04220f; display:grid; place-items:center; flex-shrink:0}
+  .booked .chk svg{width:18px; height:18px; stroke:#04220f; stroke-width:2.4; fill:none}
+  .booked b{font-family:'Space Grotesk'; font-size:14.5px} .booked span{display:block; font-size:12px; color:var(--dim); font-family:'JetBrains Mono'}
+
+  .metrics{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,.012)}
+  .metrics .row{display:grid; grid-template-columns:repeat(4,1fr)}
+  .metrics .m{padding:34px 24px; text-align:center; border-right:1px solid var(--line)}
+  .metrics .m:last-child{border-right:none}
+  .metrics .m b{font-family:'JetBrains Mono'; font-weight:700; font-size:clamp(1.9rem,3.4vw,2.6rem); color:var(--text); letter-spacing:-.02em; display:block}
+  .metrics .m span{font-size:13px; color:var(--faint); margin-top:6px; display:block}
+  @media(max-width:760px){.metrics .row{grid-template-columns:1fr 1fr}.metrics .m:nth-child(2){border-right:none}.metrics .m:nth-child(1),.metrics .m:nth-child(2){border-bottom:1px solid var(--line)}}
+
+  .sec{padding:100px 0}
+  .sec-head{max-width:680px; margin-bottom:54px}
+  .sec-head h2{font-size:clamp(2rem,3.6vw,3rem); margin:16px 0 0}
+  .sec-head p{color:var(--dim); font-size:1.12rem; margin-top:15px}
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+
+  .calc{background:linear-gradient(180deg,var(--ink2),var(--ink)); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+  .calc-grid{display:grid; grid-template-columns:1fr 1fr; gap:52px; align-items:center}
+  @media(max-width:880px){.calc-grid{grid-template-columns:1fr; gap:34px}}
+  .field{margin-bottom:26px}
+  .field label{display:flex; justify-content:space-between; align-items:baseline; font-size:14px; color:var(--dim); margin-bottom:11px}
+  .field label b{font-family:'JetBrains Mono'; font-size:19px; font-weight:700; color:var(--text)}
+  input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:6px; border-radius:6px; background:linear-gradient(90deg,var(--amber) var(--p,40%), var(--panel2) var(--p,40%)); cursor:pointer}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:22px; height:22px; border-radius:50%; background:var(--text); border:4px solid var(--amber); box-shadow:0 4px 14px rgba(0,0,0,.5); cursor:pointer; transition:transform .12s}
+  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+  input[type=range]::-moz-range-thumb{width:22px; height:22px; border-radius:50%; background:var(--text); border:4px solid var(--amber); cursor:pointer}
+  .readout{background:var(--panel); border:1px solid var(--line2); border-radius:18px; padding:34px; box-shadow:0 30px 70px rgba(0,0,0,.42); position:relative; overflow:hidden}
+  .readout::before{content:""; position:absolute; inset:0; background:radial-gradient(300px 120px at 100% 0,rgba(255,138,43,.08),transparent 70%); pointer-events:none}
+  .readout .lbl{font-family:'JetBrains Mono'; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--faint)}
+  .bignum{font-family:'JetBrains Mono'; font-weight:700; font-size:clamp(2.7rem,6vw,3.9rem); line-height:1; color:var(--amber); margin:9px 0 5px; letter-spacing:-.02em}
+  .bignum.green{color:var(--green)}
+  .readout .yr{font-size:13.5px; color:var(--dim); font-family:'JetBrains Mono'}
+  .rdiv{height:1px; background:var(--line); margin:26px 0}
+  .readout .foot{font-size:12.5px; color:var(--faint); margin-top:24px; line-height:1.55}
+  .readout .foot b{color:var(--green2); font-family:'JetBrains Mono'}
+
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr}}
+  .step{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:30px; transition:border-color .25s, transform .25s, box-shadow .25s}
+  .step:hover{border-color:rgba(255,138,43,.4); transform:translateY(-4px); box-shadow:0 18px 50px rgba(0,0,0,.35)}
+  .step .n{font-family:'JetBrains Mono'; font-weight:700; font-size:12.5px; color:var(--amber); letter-spacing:.12em}
+  .step h3{font-size:1.4rem; margin:14px 0 9px}
+  .step p{color:var(--dim); font-size:15.5px}
+
+  .feat{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  @media(max-width:820px){.feat{grid-template-columns:1fr}}
+  .fcard{background:linear-gradient(180deg,var(--panel),var(--ink2)); border:1px solid var(--line); border-radius:14px; padding:28px; transition:border-color .25s, transform .25s}
+  .fcard:hover{border-color:var(--line2); transform:translateY(-3px)}
+  .fcard .ic{width:44px; height:44px; border-radius:11px; display:grid; place-items:center; background:rgba(255,138,43,.1); border:1px solid rgba(255,138,43,.24); margin-bottom:17px}
+  .fcard .ic svg{width:22px; height:22px; stroke:var(--amber); stroke-width:1.6; fill:none; stroke-linecap:round; stroke-linejoin:round}
+  .fcard h3{font-size:1.16rem; margin-bottom:8px}
+  .fcard p{color:var(--dim); font-size:14.5px}
+
+  .tscroll{overflow-x:auto; border-radius:14px; border:1px solid var(--line2)}
+  .table{width:100%; border-collapse:collapse; min-width:640px}
+  .table th,.table td{padding:16px 18px; text-align:left; border-bottom:1px solid var(--line); font-size:14.5px}
+  .table th{font-family:'JetBrains Mono'; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--dim); background:var(--ink2)}
+  .table td:first-child{color:var(--dim)}
+  .table .sb{background:rgba(255,138,43,.06); color:var(--text); font-weight:600; font-family:'Space Grotesk'}
+  .table th.sb{color:var(--amber)}
+  .table tr:last-child td{border-bottom:none}
+  .ic-y{width:18px; height:18px; stroke:var(--green); stroke-width:2.4; fill:none; vertical-align:middle}
+  .ic-n{width:16px; height:16px; stroke:var(--faint); stroke-width:2.2; fill:none; vertical-align:middle}
+
+  .price{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; align-items:stretch; max-width:780px; margin:0 auto}
+  @media(max-width:820px){.price{grid-template-columns:1fr}}
+  .tier{background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:32px; display:flex; flex-direction:column; transition:transform .25s}
+  .tier:hover{transform:translateY(-4px)}
+  .tier.pop{border-color:var(--amber); box-shadow:0 22px 60px var(--amberglow)}
+  .tier .tag{font-family:'JetBrains Mono'; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); margin-bottom:8px; min-height:13px}
+  .tier h3{font-size:1.45rem}
+  .tier .amt{font-family:'JetBrains Mono'; font-weight:700; font-size:2.4rem; margin:14px 0 2px}
+  .tier .amt span{font-size:.95rem; color:var(--faint); font-weight:500}
+  .tier .setup{color:var(--dim); font-size:14px; margin-top:2px}
+  .tier ul{list-style:none; margin:22px 0 26px; display:flex; flex-direction:column; gap:12px; flex:1}
+  .tier li{font-size:14.5px; color:var(--dim); padding-left:26px; position:relative}
+  .tier li svg{position:absolute; left:0; top:3px; width:16px; height:16px; stroke:var(--green); stroke-width:2.4; fill:none}
+  .tier .btn{width:100%; justify-content:center}
+  .tier .mb{color:var(--faint); font-size:12.5px; margin-top:12px; text-align:center}
+
+  .quote{max-width:860px; margin:0 auto; text-align:center}
+  .quote .mark{font-family:'Space Grotesk'; font-size:4rem; line-height:.4; color:var(--amber); opacity:.5}
+  .quote h2{font-size:clamp(1.4rem,2.7vw,2rem); font-weight:600; line-height:1.34; margin:18px auto 0; max-width:760px; letter-spacing:-.01em}
+  .quote .avatar{width:64px; height:64px; border-radius:50%; object-fit:cover; margin:26px auto 0; display:block; border:2px solid var(--line2)}
+  .quote .by{margin-top:14px; font-family:'JetBrains Mono'; font-size:13px; color:var(--dim); letter-spacing:.02em}
+
+  .faq{max-width:780px; margin:0 auto}
+  .q{border-bottom:1px solid var(--line)}
+  .q button{width:100%; background:none; border:none; color:var(--text); text-align:left; cursor:pointer; font-family:'Space Grotesk'; font-weight:600; font-size:1.1rem; padding:24px 42px 24px 0; position:relative}
+  .q button::after{content:""; position:absolute; right:6px; top:27px; width:13px; height:13px; background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF8A2B' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E"); transition:transform .25s}
+  .q.open button::after{transform:rotate(135deg)}
+  .q .a{max-height:0; overflow:hidden; transition:max-height .32s ease; color:var(--dim); font-size:15.5px}
+  .q.open .a{max-height:260px}
+  .q .a p{padding:0 0 24px}
+
+  /* DEMO FORM */
+  .dform{max-width:620px; margin:0 auto; background:var(--panel); border:1px solid var(--line2); border-radius:18px; padding:34px; box-shadow:0 30px 70px rgba(0,0,0,.4)}
+  .frow{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media(max-width:560px){.frow{grid-template-columns:1fr}}
+  .ffield{margin-bottom:16px; display:flex; flex-direction:column}
+  .ffield label{font-size:12.5px; font-family:'JetBrains Mono'; letter-spacing:.04em; text-transform:uppercase; color:var(--faint); margin-bottom:7px}
+  .ffield input,.ffield select,.ffield textarea{background:var(--ink2); border:1px solid var(--line2); border-radius:10px; padding:12px 14px; color:var(--text); font-family:'Inter'; font-size:15px; transition:border-color .2s}
+  .ffield input:focus,.ffield select:focus,.ffield textarea:focus{outline:none; border-color:var(--amber)}
+  .ffield textarea{resize:vertical}
+  .fnote{text-align:center; font-size:14px; margin-top:14px; min-height:18px}
+  .fnote.ok{color:var(--green2)} .fnote.err{color:var(--amber2)}
+
+  .band{position:relative; overflow:hidden; background:linear-gradient(120deg,rgba(255,138,43,.16),rgba(47,224,138,.08)); border:1px solid var(--line2); border-radius:24px; padding:68px 40px; text-align:center; margin:30px 0}
+  .band h2{font-size:clamp(2.1rem,4vw,3.3rem)}
+  .band p{color:var(--dim); font-size:1.14rem; margin:16px auto 30px; max-width:520px}
+
+  footer{border-top:1px solid var(--line); padding:46px 0; margin-top:40px}
+  .footin{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; color:var(--faint); font-size:13.5px}
+  .footin .flinks{display:flex; gap:24px} .footin a{transition:color .2s} .footin a:hover{color:var(--text)}
+
+  .mbar{position:fixed; left:0; right:0; bottom:0; z-index:70; display:none; gap:10px; padding:12px 16px calc(12px + env(safe-area-inset-bottom)); background:rgba(10,13,18,.92); backdrop-filter:blur(14px); border-top:1px solid var(--line2)}
+  .mbar .btn{flex:1; justify-content:center; font-size:14.5px; padding:13px 14px}
+  @media(max-width:860px){.mbar{display:flex} body{padding-bottom:74px}}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none!important; transition:none!important}.reveal{opacity:1; transform:none}}
 </style>
 </head>
 <body>
-<!-- Header -->
-<header>
-    <div class="wrap">
-        <nav class="nav">
-            <a href="#" class="logo">📞 DMI <span>Flow</span></a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how">How It Works</a>
-                <a href="#industries">Industries</a>
-                <a href="#testimonial">Testimonial</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-                <a href="#demo" class="btn btn-primary">Get a Demo</a>
-            </div>
-        </nav>
+
+<nav>
+  <div class="wrap navin">
+    <div class="brand"><span class="livedot"></span>DMI&nbsp;Flow</div>
+    <div class="navlinks">
+      <a href="#calc">Cost calculator</a>
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
     </div>
+    <a href="#demo" class="btn btn-primary nav-cta">Get a demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <div>
+    <span class="eyebrow">AI Voice Agent · Answers 24/7</span>
+    <h1>Never miss a call. Never <span class="lost">lose a customer.</span></h1>
+    <p class="sub">DMI Flow's AI voice agent answers every call to your business in under five seconds — books the appointment, answers your FAQs, and routes what matters. Day, night, weekends, holidays.</p>
+    <div class="hero-cta">
+      <a href="#demo" class="btn btn-primary">Schedule a free demo</a>
+      <a href="#calc" class="btn btn-ghost">Calculate my lost revenue →</a>
+    </div>
+    <div class="trust">
+      <div class="t"><b class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg></b><span>Trusted by local business leaders</span></div>
+      <div class="t"><b>Days</b><span>setup · keep your number</span></div>
+      <div class="t"><b>No contract</b><span>30‑day money‑back</span></div>
+    </div>
+  </div>
+
+  <div class="console" id="console" role="img" aria-label="Demonstration: the AI voice agent answers an incoming call about squealing brakes and books a Tuesday 9am appointment.">
+    <div class="console-inner">
+      <div class="csl-head">
+        <span class="csl-id mono">+1 (805) 555‑0184
+          <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="timer" id="timer">00:00</span>
+        </span>
+        <span class="status ring" id="status"><span class="dot"></span>RINGING</span>
+      </div>
+      <div class="convo" id="convo" aria-hidden="true"></div>
+    </div>
+  </div>
 </header>
 
-<!-- Hero -->
-<section class="section">
-    <div class="wrap">
-        <div class="hero">
-            <div class="hero-text">
-                <div class="badge">AI-Powered • Available 24/7</div>
-                <h1>Never Miss a Call. <em>Never Lose a Customer.</em></h1>
-                <p>DMI Flow's AI voice agent answers every call, books appointments, answers FAQs, and routes inquiries—so you can focus on running your business.</p>
-                <div class="hero-btns">
-                    <a href="#demo" class="btn btn-primary">Schedule a Free Demo</a>
-                    <a href="#pricing" class="btn btn-outline">View Pricing</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="hero-image.png" alt="AI Voice Agent Dashboard" />
-            </div>
-        </div>
-    </div>
+<!-- METRICS -->
+<section class="metrics">
+  <div class="wrap"><div class="row">
+    <div class="m"><b data-count="98" data-suffix="%">0%</b><span>call answer rate</span></div>
+    <div class="m"><b>24/7</b><span>nights, weekends, holidays</span></div>
+    <div class="m"><b data-count="3" data-suffix="min">0</b><span>avg. call handle time</span></div>
+    <div class="m"><b data-count="500" data-suffix="+">0</b><span>businesses served</span></div>
+  </div></div>
 </section>
 
-<!-- Stats -->
-<section>
-    <div class="wrap">
-        <div class="stats">
-            <div class="stat">
-                <div class="num">98%</div>
-                <div class="label">Call Answer Rate</div>
-            </div>
-            <div class="stat">
-                <div class="num">24/7</div>
-                <div class="label">Availability</div>
-            </div>
-            <div class="stat">
-                <div class="num">3min</div>
-                <div class="label">Avg. Call Handle Time</div>
-            </div>
-            <div class="stat">
-                <div class="num">500+</div>
-                <div class="label">Businesses Served</div>
-            </div>
-        </div>
+<!-- CALCULATOR -->
+<section class="calc" id="calc">
+  <div class="wrap sec">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The math nobody runs</span>
+      <h2>How much are missed calls costing your business?</h2>
+      <p>Slide in your real numbers. This is revenue walking out the door to the business down the street.</p>
     </div>
+    <div class="calc-grid reveal">
+      <div>
+        <div class="field"><label>Calls your business gets per day <b id="vCalls">22</b></label><input type="range" id="calls" min="5" max="80" value="22" aria-label="Calls per day"></div>
+        <div class="field"><label>Share of calls that go unanswered <b id="vMiss">30%</b></label><input type="range" id="miss" min="10" max="60" value="30" aria-label="Percent of calls missed"></div>
+        <div class="field"><label>Average ticket / job value <b id="vTicket">$450</b></label><input type="range" id="ticket" min="150" max="2000" step="25" value="450" aria-label="Average ticket value"></div>
+        <p class="mono" style="font-size:12.5px;color:var(--faint)">Assumes 26 working days/mo · ~35% of answered new‑customer calls convert to a job.</p>
+      </div>
+      <div class="readout">
+        <div class="lbl">You're losing about</div>
+        <div class="bignum" id="lostMo">$0</div>
+        <div class="yr"><span id="lostYr">$0</span> / year in missed business</div>
+        <div class="rdiv"></div>
+        <div class="lbl">DMI Flow recovers roughly</div>
+        <div class="bignum green" id="recMo">$0</div>
+        <div class="yr"><span id="recYr">$0</span> / year back in your pipeline</div>
+        <p class="foot">DMI Flow Pro runs <b>$599/mo</b>. At these numbers it pays for itself in <b id="payback">—</b> of recovered work.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Features -->
-<section class="section" id="features">
-    <div class="wrap">
-        <div class="section-header">
-            <div class="section-label">Features</div>
-            <div class="section-title">Everything your front desk needs, automated</div>
-            <p class="section-sub">Our AI voice agent handles calls just like a real receptionist—only faster, cheaper, and always available.</p>
-        </div>
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">📞</div>
-                <h3>24/7 Call Answering</h3>
-                <p>Never miss another call. Our AI picks up instantly, day or night, weekends and holidays included.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📅</div>
-                <h3>Smart Appointment Booking</h3>
-                <p>Checks real-time availability and books appointments directly into your calendar or scheduling system.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">❓</div>
-                <h3>FAQ &amp; Service Info</h3>
-                <p>Answers common questions about your business hours, pricing, and processes. Callers get real answers, not hold music.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Call Analytics &amp; Summaries</h3>
-                <p>Get email summaries and monthly reports showing call volume, booking rates, and top questions asked.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔗</div>
-                <h3>CRM &amp; Tool Integration</h3>
-                <p>Connects with your existing CRM, calendar, and business tools for seamless workflow automation.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Bilingual Support</h3>
-                <p>Handle calls in English and Spanish (or other languages) to serve your full customer base.</p>
-            </div>
-        </div>
-    </div>
+<!-- HOW IT WORKS -->
+<section class="wrap sec" id="how">
+  <div class="sec-head reveal"><span class="eyebrow g">What it does on every call</span><h2>Answer. Book. Follow up.</h2></div>
+  <div class="steps">
+    <div class="step reveal"><div class="n">01 · ANSWER</div><h3>Picks up in 5 seconds</h3><p>24/7, even mid‑rush and after hours. Sounds like your best front‑desk person — never a voicemail, never a hold.</p></div>
+    <div class="step reveal"><div class="n">02 · BOOK</div><h3>Schedules the appointment</h3><p>Checks your calendar, books straight into an open slot, and texts the customer a confirmation before they hang up.</p></div>
+    <div class="step reveal"><div class="n">03 · FOLLOW UP</div><h3>Catches the runaways</h3><p>Auto‑texts every missed call and no‑show, so the lead never has to call the business down the street for a callback.</p></div>
+  </div>
 </section>
 
-<!-- How It Works -->
-<section class="section" id="how">
-    <div class="wrap">
-        <div class="section-header">
-            <div class="section-label">How It Works</div>
-            <div class="section-title">Up and running in days, not weeks</div>
-            <p class="section-sub">We handle the heavy lifting. You just keep doing what you do best.</p>
-        </div>
-        <div class="steps">
-            <div class="step">
-                <h3>Discovery &amp; Setup</h3>
-                <p>We learn about your business, services, hours, FAQs, and booking rules. Then we build your custom AI voice agent.</p>
-            </div>
-            <div class="step">
-                <h3>Test &amp; Tune</h3>
-                <p>You review the AI, test calls, and we fine-tune responses until everything sounds perfect for your brand.</p>
-            </div>
-            <div class="step">
-                <h3>Go Live</h3>
-                <p>We route your calls to the AI agent. You start saving time and never miss a customer call again.</p>
-            </div>
-        </div>
-    </div>
+<!-- FEATURES -->
+<section class="wrap sec">
+  <div class="sec-head reveal"><span class="eyebrow">Everything your front desk does, automated</span><h2>It already knows how your business runs.</h2></div>
+  <div class="feat">
+    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>Talks like your business</h3><p>Answers real questions — hours, pricing, services, availability — in your business's own words, not a rigid script.</p></div>
+    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4M9 14l2 2 4-4"/></svg></div><h3>Books into your system</h3><p>Drops appointments straight into your calendar or scheduler and confirms by text. No double‑booking.</p></div>
+    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></div><h3>Never closes</h3><p>Nights, weekends, holidays, on‑hold overflow — every call answered the same way, every time.</p></div>
+    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.4 8.4 0 0 1-12 7.5L3 20l1-5.5A8.4 8.4 0 1 1 21 11.5z"/><path d="M13 8l-3 4h4l-3 4"/></svg></div><h3>Texts back instantly</h3><p>Any call it can't catch live gets an instant text, so the customer stays yours — not the competitor's.</p></div>
+    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Bilingual</h3><p>Answers in English or Spanish automatically — no separate line, no fumbling, no lost customer.</p></div>
+    <div class="fcard reveal"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h16M8 16l3.5-4 3 2.5L20 8"/></svg></div><h3>Analytics &amp; summaries</h3><p>Email summaries and monthly reports — call volume, booking rates, and the top questions callers ask.</p></div>
+  </div>
 </section>
 
-<!-- Industries -->
-<section class="section" id="industries">
-    <div class="wrap">
-        <div class="section-header">
-            <div class="section-label">Industries</div>
-            <div class="section-title">Built for businesses like yours</div>
-            <p class="section-sub">DMI Flow works across dozens of industries. Here are some of our most popular use cases.</p>
-        </div>
-        <div class="industries">
-            <div class="industry">
-                <div class="industry-icon">🔧</div>
-                <div>
-                    <h3>Auto Repair Shops</h3>
-                    <p>Book service appointments, answer parts questions, and handle after-hours calls without adding staff.</p>
-                </div>
-            </div>
-            <div class="industry">
-                <div class="industry-icon">🩺</div>
-                <div>
-                    <h3>Medical &amp; Dental Offices</h3>
-                    <p>Schedule patient visits, handle prescription refill requests, and provide office information 24/7.</p>
-                </div>
-            </div>
-            <div class="industry">
-                <div class="industry-icon">🏠</div>
-                <div>
-                    <h3>Home Services</h3>
-                    <p>HVAC, plumbing, electrical—capture every lead, schedule estimates, and dispatch techs efficiently.</p>
-                </div>
-            </div>
-            <div class="industry">
-                <div class="industry-icon">⚖️</div>
-                <div>
-                    <h3>Law Firms</h3>
-                    <p>Screen potential clients, schedule consultations, and provide basic case information around the clock.</p>
-                </div>
-            </div>
-            <div class="industry">
-                <div class="industry-icon">🏋️</div>
-                <div>
-                    <h3>Fitness &amp; Wellness</h3>
-                    <p>Handle class bookings, membership inquiries, and schedule personal training sessions automatically.</p>
-                </div>
-            </div>
-            <div class="industry">
-                <div class="industry-icon">🏢</div>
-                <div>
-                    <h3>Property Management</h3>
-                    <p>Field tenant calls, schedule showings, handle maintenance requests, and provide property information.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- COMPARE -->
+<section class="wrap sec">
+  <div class="sec-head reveal"><span class="eyebrow">Why upgrade</span><h2>The honest comparison.</h2></div>
+  <div class="tscroll reveal">
+    <table class="table">
+      <thead><tr><th></th><th>Voicemail</th><th>Hire a receptionist</th><th>Answering service</th><th class="sb">DMI Flow</th></tr></thead>
+      <tbody>
+        <tr><td>Answers every call</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td>Office hours</td><td><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
+        <tr><td>24/7 &amp; weekends</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
+        <tr><td>Books into your calendar</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td><td>Rarely</td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
+        <tr><td>Knows your services &amp; pricing</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td>Eventually</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
+        <tr><td>Texts back missed callers</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
+        <tr><td>Monthly cost</td><td>$0</td><td>$3,000–4,500</td><td>$300–800</td><td class="sb">$599</td></tr>
+      </tbody>
+    </table>
+  </div>
 </section>
 
-
-<!-- Testimonial -->
-<section class="testimonial-section" id="testimonial">
-    <div class="wrap">
-        <div class="section-header">
-            <div class="section-label">Local Testimonial</div>
-            <div class="section-title">Trusted by Oxnard business leaders</div>
-            <p class="section-sub">A short note from a local professional who understands the value of responsive customer service.</p>
-        </div>
-        <div class="testimonial-card">
-            <img class="testimonial-photo" src="assets/omar-velazquez-testimonial.jpg" alt="Omar Velazquez, President of Keller Williams Realty in Oxnard CA" />
-            <div class="testimonial-quote">
-                <blockquote>“DMI Flow is professional, responsive, and easy to work with. It gives businesses a smarter way to handle calls and create a better customer experience.”</blockquote>
-                <p>Local businesses need fast communication and reliable follow-up. DMI Flow helps make that possible.</p>
-                <div class="testimonial-person">
-                    <span class="testimonial-name">Omar Velazquez</span>
-                    <span class="testimonial-title">President, Keller Williams Realty — Oxnard, CA</span>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- TESTIMONIAL (from dmiflow.com) -->
+<section class="wrap sec">
+  <div class="quote reveal">
+    <div class="mark">"</div>
+    <h2>DMI Flow is professional, responsive, and easy to work with. It gives businesses a smarter way to handle calls and create a better customer experience.</h2>
+    <img class="avatar" src="https://www.dmiflow.com/assets/omar-velazquez-testimonial.jpg" alt="Omar Velazquez, President of Keller Williams Realty, Oxnard CA" loading="lazy">
+    <div class="by">OMAR VELAZQUEZ · PRESIDENT, KELLER WILLIAMS REALTY · OXNARD, CA</div>
+  </div>
 </section>
 
-<!-- Pricing -->
-<section class="section" id="pricing">
-    <div class="wrap">
-        <div class="section-header">
-            <div class="section-label">Pricing</div>
-            <div class="section-title">Simple, transparent plans</div>
-            <p class="section-sub">No long-term contracts. Month-to-month plans that earn your business every single month.</p>
-        </div>
-        <div class="pricing-grid">
-            <div class="price-card featured">
-                <div class="tier">Pro</div>
-                <div class="price">$599 <span>/ month</span></div>
-                <div class="desc">Perfect for busy businesses that want their phones fully covered and their schedule filled.</div>
-                <ul>
-                    <li>Average 1,500 minutes of AI call handling / month</li>
-                    <li>Advanced FAQ &amp; service explanation logic</li>
-                    <li>Priority appointment booking rules</li>
-                    <li>Basic bilingual support (e.g., English / Spanish)</li>
-                    <li>Monthly call analytics report</li>
-                </ul>
-                <div style="color:var(--muted);font-size:.85rem;margin-bottom:1rem">+ $995 one-time setup &amp; AI build fee</div>
-                <a href="https://link.fastpaydirect.com/payment-link/6953254a931bca62f51b5cf9" class="btn btn-primary" style="width:100%;justify-content:center">Start Risk-Free — 30-Day Money-Back Guarantee</a>
-            </div>
-            <div class="price-card">
-                <div class="tier">Custom</div>
-                <div class="price">Let’s talk <span>/ per business</span></div>
-                <div class="desc">Tailored solutions for multi-location operations and high-volume businesses with custom needs.</div>
-                <ul>
-                    <li>Custom minutes, routing logic, and SLAs</li>
-                    <li>Multi-location support &amp; call routing rules</li>
-                    <li>Dedicated onboarding &amp; priority support</li>
-                    <li>Integration with your existing tools (where possible)</li>
-                </ul>
-                <div style="color:var(--muted);font-size:.85rem;margin-bottom:1rem">Custom setup — let’s discuss</div>
-                <a href="mailto:christian@autoshopreceptionist.com?subject=Custom%20Plan%20Inquiry%20-%20DMI%20Flow&body=Hi%20Christian%2C%0D%0A%0D%0AWe%20are%20interested%20in%20a%20custom%20plan%20for%20our%20business.%0D%0A%0D%0ANumber%20of%20locations%3A%0D%0ATypical%20monthly%20call%20volume%3A%0D%0AAny%20special%20requirements%3A%0D%0A%0D%0AThanks!" class="btn btn-outline" style="width:100%;justify-content:center">Talk about a custom plan</a>
-            </div>
-        </div>
-        <p style="text-align:center;color:var(--muted);margin-top:1.5rem;font-size:.9rem">One-time setup fee of $995 includes custom AI build, onboarding, and integration. &mdash; 30-day money-back guarantee on all plans.</p>
+<!-- PRICING (from dmiflow.com) -->
+<section class="wrap sec" id="pricing">
+  <div class="sec-head reveal" style="margin:0 auto 54px;text-align:center"><span class="eyebrow" style="justify-content:center">Pricing</span><h2>Simple, transparent plans.</h2><p>No long‑term contracts. Month‑to‑month plans that earn your business every month.</p></div>
+  <div class="price">
+    <div class="tier pop reveal">
+      <div class="tag">Most popular</div><h3>Pro</h3>
+      <div class="amt">$599<span>/mo</span></div>
+      <div class="setup">+ $995 one‑time setup &amp; AI build</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>~1,500 minutes of AI call handling / mo</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Advanced FAQ &amp; service‑explanation logic</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Priority appointment booking rules</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Bilingual support (English / Spanish)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Monthly call analytics report</li>
+      </ul>
+      <a href="https://link.fastpaydirect.com/payment-link/6953254a931bca62f51b5cf9" class="btn btn-primary">Start risk‑free →</a>
+      <p class="mb">30‑day money‑back guarantee</p>
     </div>
+    <div class="tier reveal">
+      <div class="tag">&nbsp;</div><h3>Custom</h3>
+      <div class="amt" style="font-size:1.7rem">Let's talk</div>
+      <div class="setup">Multi‑location &amp; high‑volume</div>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Custom minutes, routing logic &amp; SLAs</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Multi‑location support &amp; routing rules</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Dedicated onboarding &amp; priority support</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Integration with your existing tools</li>
+      </ul>
+      <a href="mailto:christian@autoshopreceptionist.com?subject=Custom%20Plan%20Inquiry%20-%20DMI%20Flow&body=Hi%20Christian%2C%0D%0A%0D%0AWe%20are%20interested%20in%20a%20custom%20plan%20for%20our%20business.%0D%0A%0D%0ANumber%20of%20locations%3A%0D%0ATypical%20monthly%20call%20volume%3A%0D%0AAny%20special%20requirements%3A%0D%0A%0D%0AThanks!" class="btn btn-ghost">Talk about a custom plan</a>
+      <p class="mb">Setup fee waived case‑by‑case</p>
+    </div>
+  </div>
+  <p style="text-align:center;color:var(--faint);font-size:12.5px;margin-top:24px">One‑time $995 setup includes custom AI build, onboarding, and integration. 30‑day money‑back guarantee on all plans.</p>
 </section>
 
 <!-- FAQ -->
-<section class="section" id="faq">
-    <div class="wrap">
-        <div class="section-header">
-            <div class="section-label">FAQ</div>
-            <div class="section-title">Common questions, clear answers</div>
-        </div>
-        <div class="faq-list">
-            <div class="faq-item">
-                <div class="faq-q">How does the AI voice agent actually work?</div>
-                <div class="faq-a">Our AI listens to each caller, understands their intent using natural language processing, and responds naturally. It can answer FAQs, book appointments, take messages, and route calls—all without human intervention.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Will it sound like a robot?</div>
-                <div class="faq-a">Not at all. Our AI uses advanced voice synthesis to sound natural and conversational. Most callers won’t realize they’re speaking with an AI.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">How long does setup take?</div>
-                <div class="faq-a">Typically 3–5 business days from kickoff to go-live. We handle the AI build, you just provide info about your business and review the final product.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Can I keep my existing phone number?</div>
-                <div class="faq-a">Absolutely. We set up call forwarding from your existing number so nothing changes for your customers. No new numbers needed.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">What if a caller needs a real person?</div>
-                <div class="faq-a">The AI can detect when a caller needs human assistance and will transfer the call to your team, take a message, or flag it for urgent follow-up—your choice.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">Is there a contract or commitment?</div>
-                <div class="faq-a">No long-term contracts. All plans are month-to-month. Plus we offer a 30-day money-back guarantee so you can try it risk-free.</div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-q">What integrations do you support?</div>
-                <div class="faq-a">We integrate with popular CRMs, calendar systems, and business tools. During onboarding, we’ll identify the best integrations for your workflow.</div>
-            </div>
-        </div>
-    </div>
+<section class="wrap sec" id="faq">
+  <div class="sec-head reveal" style="margin:0 auto 44px; text-align:center"><span class="eyebrow" style="justify-content:center">Straight answers</span><h2>Common questions, clear answers.</h2></div>
+  <div class="faq reveal">
+    <div class="q"><button>Will it sound like a robot?</button><div class="a"><p>No. Callers hear a natural, conversational voice that answers questions and handles interruptions like a real front‑desk person. Most callers never realize it isn't human.</p></div></div>
+    <div class="q"><button>Can I keep my current number?</button><div class="a"><p>Yes. We set up call forwarding from your existing number — nothing changes for your customers, and there's no new number to learn.</p></div></div>
+    <div class="q"><button>How long does setup take?</button><div class="a"><p>Typically 3–5 business days from kickoff to go‑live. We build and tune the AI; you just share your business info and review the final result.</p></div></div>
+    <div class="q"><button>What if a caller needs a real person?</button><div class="a"><p>The AI detects when a caller needs a human and transfers the call, takes a message, or flags it for urgent follow‑up — your choice, with full context attached.</p></div></div>
+    <div class="q"><button>Is there a contract?</button><div class="a"><p>No long‑term contract. All plans are month‑to‑month, with a 30‑day money‑back guarantee so you can try it risk‑free.</p></div></div>
+  </div>
 </section>
 
-<!-- Demo -->
-<section class="section" id="demo">
-    <div class="wrap">
-        <div class="demo-section">
-            <div class="demo-grid">
-                <div class="demo-info">
-                    <h2>See DMI Flow in action</h2>
-                    <p>Schedule a free demo and hear how our AI handles real calls for businesses like yours. No pressure, no obligation.</p>
-                    <ul>
-                        <li>Live demo with your actual business info</li>
-                        <li>Custom pricing based on your call volume</li>
-                        <li>Up and running in days, not weeks</li>
-                        <li>30-day money-back guarantee</li>
-                    </ul>
-                </div>
-                <form class="demo-form" id="demo-form" action="https://formspree.io/f/xdoqgpwe" method="POST">
-                    <div class="form-row">
-                        <div>
-                            <label>First Name</label>
-                            <input type="text" name="first_name" required placeholder="John" />
-                        </div>
-                        <div>
-                            <label>Last Name</label>
-                            <input type="text" name="last_name" required placeholder="Smith" />
-                        </div>
-                    </div>
-                    <label>Business Name</label>
-                    <input type="text" name="business_name" required placeholder="Smith Auto Repair" />
-                    <label>Email</label>
-                    <input type="email" name="email" required placeholder="john@smithauto.com" />
-                    <label>Phone</label>
-                    <input type="tel" name="phone" required placeholder="(555) 123-4567" />
-                    <label>Industry</label>
-                    <select name="industry" required>
-                        <option value="">Select your industry</option>
-                        <option>Auto Repair</option>
-                        <option>Medical / Dental</option>
-                        <option>Home Services (HVAC, Plumbing, etc.)</option>
-                        <option>Law Firm</option>
-                        <option>Fitness / Wellness</option>
-                        <option>Property Management</option>
-                        <option>Other</option>
-                    </select>
-                    <label>Monthly Call Volume (estimate)</label>
-                    <select name="call_volume">
-                        <option value="">Select range</option>
-                        <option>Under 200 calls</option>
-                        <option>200-500 calls</option>
-                        <option>500-1,000 calls</option>
-                        <option>1,000+ calls</option>
-                    </select>
-                    <label>Anything else we should know?</label>
-                    <textarea name="message" rows="3" placeholder="Tell us about your business..."></textarea>
-                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Schedule My Free Demo</button>
-                </form>
-            </div>
-        </div>
+<!-- DEMO / CONTACT FORM (from dmiflow.com) -->
+<section class="wrap sec" id="demo">
+  <div class="sec-head reveal" style="margin:0 auto 40px; text-align:center"><span class="eyebrow" style="justify-content:center">Get a demo</span><h2>Hear it handle a real call.</h2><p>Schedule a free demo with your actual business info. No pressure, no obligation.</p></div>
+  <form class="dform reveal" id="demoForm" novalidate>
+    <div class="frow">
+      <div class="ffield"><label>First name</label><input name="first" required></div>
+      <div class="ffield"><label>Last name</label><input name="last" required></div>
     </div>
+    <div class="ffield"><label>Business name</label><input name="business" required></div>
+    <div class="frow">
+      <div class="ffield"><label>Email</label><input type="email" name="email" required></div>
+      <div class="ffield"><label>Phone</label><input type="tel" name="phone" required></div>
+    </div>
+    <div class="frow">
+      <div class="ffield"><label>Industry</label><select name="industry"><option value="">Select…</option><option>Auto Repair</option><option>Medical / Dental</option><option>Home Services (HVAC, Plumbing)</option><option>Law Firm</option><option>Fitness / Wellness</option><option>Property Management</option><option>Other</option></select></div>
+      <div class="ffield"><label>Monthly call volume</label><select name="volume"><option value="">Select…</option><option>Under 200</option><option>200–500</option><option>500–1,000</option><option>1,000+</option></select></div>
+    </div>
+    <div class="ffield"><label>Anything else we should know?</label><textarea name="notes" rows="3"></textarea></div>
+    <button type="submit" class="btn btn-primary">Schedule my free demo</button>
+    <p class="fnote" id="formMsg"></p>
+  </form>
 </section>
 
-<!-- Footer -->
 <footer>
-    <div class="wrap">
-        <p>&copy; 2025 DMI Flow. All rights reserved. | <a href="mailto:christian@autoshopreceptionist.com">Contact Us</a></p>
-    </div>
+  <div class="wrap footin">
+    <div class="brand" style="font-size:17px"><span class="livedot"></span>DMI&nbsp;Flow</div>
+    <div class="flinks"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#demo">Get a demo</a><a href="mailto:christian@autoshopreceptionist.com">Contact</a></div>
+    <span>© 2026 DMI Flow · AI voice agents for your business.</span>
+  </div>
 </footer>
 
-<script>
-// FAQ accordion
-document.querySelectorAll('.faq-q').forEach(q=>{
-    q.addEventListener('click',()=>{
-        const item=q.parentElement;
-        document.querySelectorAll('.faq-item').forEach(i=>{if(i!==item)i.classList.remove('open')});
-        item.classList.toggle('open');
-    });
-});
+<div class="mbar">
+  <a href="#calc" class="btn btn-ghost">My lost revenue</a>
+  <a href="#demo" class="btn btn-primary">Get a demo</a>
+</div>
 
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-        e.preventDefault();
-        const target=document.querySelector(a.getAttribute('href'));
-        if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
-    });
-});
+<script>
+/* ---- live call console ---- */
+(function(){
+  var convo=document.getElementById('convo'), status=document.getElementById('status'), consoleEl=document.getElementById('console'), timerEl=document.getElementById('timer');
+  var script=[
+    {who:'caller',t:"Hi — do you have any appointments open this week?"},
+    {who:'ai',t:"We do. I can get you in Tuesday at 9 or Thursday at 2 — which works better?"},
+    {who:'caller',t:"Tuesday at 9 is great. How long will it take?"},
+    {who:'ai',t:"About an hour. You're booked for Tuesday 9 AM — I'm texting your confirmation now."}
+  ];
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timerInt=null, t=0;
+  function fmt(s){return '0'+Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+  function bookedCard(){var b=document.createElement('div'); b.className='booked'; b.innerHTML='<div class="chk"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></div><div><b>Booked — Appointment</b><span>Tue 9:00 AM · confirmation texted</span></div>'; convo.appendChild(b);}
+  function startTimer(){t=0; timerEl.textContent='00:00'; timerInt=setInterval(function(){t++; timerEl.textContent=fmt(t);},1000);}
+  function stopTimer(){clearInterval(timerInt);}
+  function run(){
+    convo.innerHTML=''; status.className='status ring'; status.innerHTML='<span class="dot"></span>RINGING'; consoleEl.classList.remove('live'); timerEl.textContent='00:00';
+    if(reduce){script.forEach(function(m){var d=document.createElement('div');d.className='bub '+m.who;d.style.opacity=1;d.style.transform='none';d.innerHTML='<span class="who">'+(m.who==='ai'?'DMI Flow':'Caller')+'</span>'+m.t;convo.appendChild(d);}); status.className='status ans'; status.innerHTML='<span class="dot"></span>BOOKED'; consoleEl.classList.add('live'); timerEl.textContent='00:38'; bookedCard(); return;}
+    setTimeout(function(){status.className='status ans'; status.innerHTML='<span class="dot"></span>ANSWERED'; consoleEl.classList.add('live'); startTimer();},1100);
+    var delay=1500;
+    script.forEach(function(m){setTimeout(function(){var d=document.createElement('div'); d.className='bub '+m.who; d.innerHTML='<span class="who">'+(m.who==='ai'?'DMI Flow':'Caller')+'</span>'+m.t; convo.appendChild(d);}, delay); delay+=1550;});
+    setTimeout(function(){status.innerHTML='<span class="dot"></span>BOOKED'; stopTimer(); consoleEl.classList.remove('live'); bookedCard();}, delay+200);
+    setTimeout(run, delay+4400);
+  }
+  run();
+})();
+
+/* ---- count-up tween ---- */
+function tween(from,to,dur,dec,cb){var start=null;function step(ts){if(!start)start=ts;var p=Math.min((ts-start)/dur,1);var e=1-Math.pow(1-p,3);cb((from+(to-from)*e).toFixed(dec));if(p<1)requestAnimationFrame(step);}requestAnimationFrame(step);}
+
+/* ---- metrics count-up ---- */
+(function(){var done=false;var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&!done){done=true;document.querySelectorAll('.metrics b[data-count]').forEach(function(el){var to=+el.dataset.count,dec=+(el.dataset.dec||0),suf=el.dataset.suffix||'';tween(0,to,1100,dec,function(v){el.textContent=v+suf;});});io.disconnect();}});},{threshold:.4});var m=document.querySelector('.metrics');if(m)io.observe(m);})();
+
+/* ---- calculator ---- */
+(function(){
+  var calls=document.getElementById('calls'), miss=document.getElementById('miss'), ticket=document.getElementById('ticket');
+  var vCalls=document.getElementById('vCalls'), vMiss=document.getElementById('vMiss'), vTicket=document.getElementById('vTicket');
+  var lostMo=document.getElementById('lostMo'), lostYr=document.getElementById('lostYr'), recMo=document.getElementById('recMo'), recYr=document.getElementById('recYr'), payback=document.getElementById('payback');
+  var CONV=0.35, DAYS=26, CATCH=0.92, COST=599;
+  var cur={lostMo:0,lostYr:0,recMo:0,recYr:0};
+  function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+  function setTrack(el){var min=+el.min,max=+el.max;el.style.setProperty('--p',((el.value-min)/(max-min)*100)+'%');}
+  function animMoney(el,key,target){var from=cur[key]||0;cur[key]=target;tween(from,target,400,0,function(v){el.textContent=money(v);});}
+  function calc(){
+    [calls,miss,ticket].forEach(setTrack);
+    var c=+calls.value,m=+miss.value/100,tk=+ticket.value;
+    vCalls.textContent=c; vMiss.textContent=Math.round(m*100)+'%'; vTicket.textContent=money(tk);
+    var missedMo=c*DAYS*m, lost=missedMo*CONV*tk, rec=lost*CATCH;
+    animMoney(lostMo,'lostMo',lost); animMoney(lostYr,'lostYr',lost*12); animMoney(recMo,'recMo',rec); animMoney(recYr,'recYr',rec*12);
+    var days=rec>0?Math.max(1,Math.round(COST/(rec/DAYS))):0;
+    payback.textContent=days+(days===1?' day':' days');
+  }
+  [calls,miss,ticket].forEach(function(el){el.addEventListener('input',calc)});
+  calc();
+})();
+
+/* ---- faq ---- */
+document.querySelectorAll('.q button').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});
+
+/* ---- demo form ----
+   NOTE: connect this to your GHL form. Two options:
+   (1) Replace this whole <form> with your GHL form embed (iframe), OR
+   (2) POST these fields to your GHL inbound webhook / form endpoint below. */
+(function(){
+  var form=document.getElementById('demoForm'), msg=document.getElementById('formMsg');
+  var GHL_WEBHOOK_URL=""; // <-- paste your GHL inbound webhook URL here to go live
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var req=['first','last','business','email','phone'];
+    for(var i=0;i<req.length;i++){ if(!form[req[i]].value.trim()){ msg.className='fnote err'; msg.textContent='Please fill in your name, business, email, and phone.'; form[req[i]].focus(); return; } }
+    var data={}; new FormData(form).forEach(function(v,k){data[k]=v;});
+    if(GHL_WEBHOOK_URL){
+      fetch(GHL_WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+        .then(function(){msg.className='fnote ok'; msg.textContent="Thanks — we'll reach out shortly to set up your demo."; form.reset();})
+        .catch(function(){msg.className='fnote err'; msg.textContent='Something went wrong — please email christian@autoshopreceptionist.com.';});
+    } else {
+      msg.className='fnote ok'; msg.textContent="Thanks — we'll reach out shortly to set up your demo.";
+      form.reset();
+      console.log('Demo request (wire GHL_WEBHOOK_URL to send live):',data);
+    }
+  });
+})();
+
+/* ---- scroll reveal ---- */
+(function(){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});})();
 </script>
 </body>
 </html>

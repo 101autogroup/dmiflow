@@ -401,23 +401,23 @@
 <!-- DEMO / CONTACT FORM (from dmiflow.com) -->
 <section class="wrap sec" id="demo">
   <div class="sec-head reveal" style="margin:0 auto 40px; text-align:center"><span class="eyebrow" style="justify-content:center">Get a demo</span><h2>Hear it handle a real call.</h2><p>Schedule a free demo with your actual business info. No pressure, no obligation.</p></div>
-  <form class="dform reveal" id="demoForm" novalidate>
+  <form class="dform reveal" id="demoForm" action="https://formspree.io/f/xdoqgpwe" method="POST">
     <div class="frow">
-      <div class="ffield"><label>First name</label><input name="first" required></div>
-      <div class="ffield"><label>Last name</label><input name="last" required></div>
+      <div class="ffield"><label>First name</label><input type="text" name="first_name" required placeholder="John"></div>
+      <div class="ffield"><label>Last name</label><input type="text" name="last_name" required placeholder="Smith"></div>
     </div>
-    <div class="ffield"><label>Business name</label><input name="business" required></div>
+    <div class="ffield"><label>Business name</label><input type="text" name="business_name" required placeholder="Smith Auto Repair"></div>
     <div class="frow">
-      <div class="ffield"><label>Email</label><input type="email" name="email" required></div>
-      <div class="ffield"><label>Phone</label><input type="tel" name="phone" required></div>
+      <div class="ffield"><label>Email</label><input type="email" name="email" required placeholder="john@smithauto.com"></div>
+      <div class="ffield"><label>Phone</label><input type="tel" name="phone" required placeholder="(555) 123-4567"></div>
     </div>
     <div class="frow">
-      <div class="ffield"><label>Industry</label><select name="industry"><option value="">Select…</option><option>Auto Repair</option><option>Medical / Dental</option><option>Home Services (HVAC, Plumbing)</option><option>Law Firm</option><option>Fitness / Wellness</option><option>Property Management</option><option>Other</option></select></div>
-      <div class="ffield"><label>Monthly call volume</label><select name="volume"><option value="">Select…</option><option>Under 200</option><option>200–500</option><option>500–1,000</option><option>1,000+</option></select></div>
+      <div class="ffield"><label>Industry</label><select name="industry" required><option value="">Select your industry</option><option>Auto Repair</option><option>Medical / Dental</option><option>Home Services (HVAC, Plumbing, etc.)</option><option>Law Firm</option><option>Fitness / Wellness</option><option>Property Management</option><option>Other</option></select></div>
+      <div class="ffield"><label>Monthly call volume (estimate)</label><select name="call_volume"><option value="">Select range</option><option>Under 200 calls</option><option>200-500 calls</option><option>500-1,000 calls</option><option>1,000+ calls</option></select></div>
     </div>
-    <div class="ffield"><label>Anything else we should know?</label><textarea name="notes" rows="3"></textarea></div>
+    <div class="ffield"><label>Anything else we should know?</label><textarea name="message" rows="3" placeholder="Tell us about your business..."></textarea></div>
     <button type="submit" class="btn btn-primary">Schedule my free demo</button>
-    <p class="fnote" id="formMsg"></p>
+    <p class="fnote" id="formMsg" role="status" aria-live="polite"></p>
   </form>
 </section>
 
@@ -494,27 +494,31 @@ function tween(from,to,dur,dec,cb){var start=null;function step(ts){if(!start)st
 /* ---- faq ---- */
 document.querySelectorAll('.q button').forEach(function(b){b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});});
 
-/* ---- demo form ----
-   NOTE: connect this to your GHL form. Two options:
-   (1) Replace this whole <form> with your GHL form embed (iframe), OR
-   (2) POST these fields to your GHL inbound webhook / form endpoint below. */
+/* ---- demo form: AJAX submit to Formspree, stays on page, shows thank-you ---- */
 (function(){
-  var form=document.getElementById('demoForm'), msg=document.getElementById('formMsg');
-  var GHL_WEBHOOK_URL=""; // <-- paste your GHL inbound webhook URL here to go live
+  var form=document.getElementById('demoForm'); if(!form) return;
+  var msg=document.getElementById('formMsg');
+  var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var req=['first','last','business','email','phone'];
-    for(var i=0;i<req.length;i++){ if(!form[req[i]].value.trim()){ msg.className='fnote err'; msg.textContent='Please fill in your name, business, email, and phone.'; form[req[i]].focus(); return; } }
-    var data={}; new FormData(form).forEach(function(v,k){data[k]=v;});
-    if(GHL_WEBHOOK_URL){
-      fetch(GHL_WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
-        .then(function(){msg.className='fnote ok'; msg.textContent="Thanks — we'll reach out shortly to set up your demo."; form.reset();})
-        .catch(function(){msg.className='fnote err'; msg.textContent='Something went wrong — please email christian@autoshopreceptionist.com.';});
-    } else {
-      msg.className='fnote ok'; msg.textContent="Thanks — we'll reach out shortly to set up your demo.";
-      form.reset();
-      console.log('Demo request (wire GHL_WEBHOOK_URL to send live):',data);
-    }
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    var label=btn.textContent; btn.disabled=true; btn.textContent='Sending…'; msg.textContent='';
+    fetch(form.action,{ method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
+      .then(function(r){
+        if(r.ok){
+          form.reset();
+          msg.className='fnote ok';
+          msg.textContent="Thank you for sending — we'll be in touch shortly.";
+        } else {
+          msg.className='fnote err';
+          msg.textContent='Something went wrong — please email christian@autoshopreceptionist.com.';
+        }
+      })
+      .catch(function(){
+        msg.className='fnote err';
+        msg.textContent='Network error — please email christian@autoshopreceptionist.com.';
+      })
+      .then(function(){ btn.disabled=false; btn.textContent=label; });
   });
 })();
 

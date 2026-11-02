@@ -214,7 +214,7 @@
 
   footer{border-top:1px solid var(--line); padding:46px 0; margin-top:40px}
   .footin{display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; color:var(--faint); font-size:13.5px}
-  .footin .flinks{display:flex; gap:24px} .footin a{transition:color .2s} .footin a:hover{color:var(--text)}
+  .footin .flinks{display:flex; gap:12px 24px; flex-wrap:wrap} .footin a{transition:color .2s} .footin a:hover{color:var(--text)}
 
   .mbar{position:fixed; left:0; right:0; bottom:0; z-index:70; display:none; gap:10px; padding:12px 16px calc(12px + env(safe-area-inset-bottom)); background:rgba(10,13,18,.92); backdrop-filter:blur(14px); border-top:1px solid var(--line2)}
   .mbar .btn{flex:1; justify-content:center; font-size:14.5px; padding:13px 14px}
@@ -244,6 +244,15 @@
   .price.three{grid-template-columns:repeat(3,1fr); max-width:none}
   @media(max-width:1000px){.price.three{grid-template-columns:1fr; max-width:520px}}
   .tier .amt{font-size:2.15rem}
+  .price.four{grid-template-columns:repeat(4,1fr); max-width:none; gap:16px}
+  .price.four .tier{padding:26px 22px}
+  .price.four .tier .amt{font-size:1.95rem}
+  .price.four .tier h3{font-size:1.3rem}
+  .price.four .tier li{font-size:14px}
+  @media(max-width:1120px){.price.four{grid-template-columns:repeat(2,1fr); max-width:820px; margin:0 auto}}
+  @media(max-width:640px){.price.four{grid-template-columns:1fr; max-width:520px}}
+  .tier .minus{font-size:13px; color:var(--faint); padding-left:26px; position:relative}
+  .tier .minus::before{content:"–"; position:absolute; left:4px; top:0; color:var(--faint)}
   .tier .plus{font-family:'JetBrains Mono'; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--green); margin:18px 0 -8px}
   .tier .terms{font-size:12px; color:var(--faint); margin-top:10px; text-align:center; line-height:1.5}
   .tier .who{font-size:13.5px; color:var(--dim); margin-top:6px; min-height:40px}
@@ -283,6 +292,7 @@
       <a href="#how">How it works</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
+      <a href="/dealers/">For Car Dealers</a>
     </div>
     <div class="navright">
       <a href="https://my.dmiflow.com" target="_blank" rel="noopener noreferrer" class="client-login">Client login</a>
@@ -304,7 +314,7 @@
     <div class="trust">
       <div class="t"><b class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.8L12 17.3 5.8 20.9l1.6-6.8L2.2 8.9l6.9-.6z"/></svg></b><span>Trusted by local business leaders</span></div>
       <div class="t"><b>Days</b><span>setup · keep your number</span></div>
-      <div class="t"><b>Month‑to‑month</b><span>on Answer &amp; Capture plans</span></div>
+      <div class="t"><b>From $199/mo</b><span>month‑to‑month, no contract</span></div>
     </div>
   </div>
 
@@ -433,7 +443,7 @@
         <tr><td>Buyer‑intent data for your area</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td>Extra</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
         <tr><td>Automated follow‑up on every lead</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td>Sometimes</td><td>When you remember</td><td class="sb"><svg class="ic-y" viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></td></tr>
         <tr><td>Ads built on your own visitor &amp; caller data</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td>Generic targeting</td><td><svg class="ic-n" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></td><td class="sb">Grow plan</td></tr>
-        <tr><td>Monthly cost</td><td>$300–800</td><td>$2,000–5,000 + spend</td><td>Your time</td><td class="sb">From $599</td></tr>
+        <tr><td>Monthly cost</td><td>$300–800</td><td>$2,000–5,000 + spend</td><td>Your time</td><td class="sb">From $199</td></tr>
       </tbody>
     </table>
   </div>
@@ -462,8 +472,26 @@
 
 <!-- PRICING (from dmiflow.com) -->
 <section class="wrap sec" id="pricing">
-  <div class="sec-head reveal" style="margin:0 auto 54px;text-align:center"><span class="eyebrow" style="justify-content:center">Pricing</span><h2>Three plans. Flat monthly pricing. No per‑lead fees.</h2><p>Start with the receptionist, add lead recovery when you're ready, hand us the ads when you want to grow. Every plan builds on the one before it.</p></div>
-  <div class="price three">
+  <div class="sec-head reveal" style="margin:0 auto 54px;text-align:center"><span class="eyebrow" style="justify-content:center">Pricing</span><h2>Four plans. Flat monthly pricing. No per‑lead fees.</h2><p>Cover nights and missed calls for $199, add full‑time coverage when you're ready, then lead recovery and managed ads as you grow. Every plan builds on the one before it.</p></div>
+  <div class="price four">
+
+    <div class="tier reveal">
+      <div class="tag">Entry · After‑hours &amp; overflow</div><h3>After‑Hours</h3>
+      <div class="amt">$199<span>/mo</span></div>
+      <div class="setup">+ $295 one‑time setup &amp; AI build</div>
+      <p class="who">For businesses that cover the phones by day but lose the calls after close and the ones nobody grabs.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>AI answers when you're closed or miss the call</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>200 minutes included / mo ($0.40/min after)</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Captures name, number &amp; what they need</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Instant text‑back to every caller</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Lead summary sent to you by text &amp; email</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Bilingual (English / Spanish)</li>
+        <li class="minus">No daytime coverage or CRM — see Answer</li>
+      </ul>
+      <a href="https://link.fastpaydirect.com/payment-link/6ae8257100921ddbe8ee1069" class="btn btn-ghost">Sign Up Now →</a>
+      <p class="terms">Month‑to‑month · 30‑day money‑back guarantee</p>
+    </div>
 
     <div class="tier reveal">
       <div class="tag">Step 1 · Start here</div><h3>Answer</h3>
@@ -472,7 +500,7 @@
       <p class="who">For businesses losing calls to voicemail, hold, and after‑hours.</p>
       <ul>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>24/7 AI receptionist on your existing number</li>
-        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>~1,500 minutes of call handling / mo</li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>600 minutes of call handling / mo ($0.30/min after)</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Books straight into your calendar</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Missed‑call &amp; no‑show text‑back</li>
         <li><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg>Bilingual (English / Spanish)</li>
@@ -538,7 +566,7 @@
     <a href="#demo" class="btn btn-ghost" data-plan="Enterprise / Dealer Group">Talk to us →</a>
   </div>
 
-  <p class="terms-note">Answer and Capture are month‑to‑month. Grow is a 12‑month agreement with the setup fee waived at renewal. Ad spend is paid by you directly to Meta and Google and is never included in our fees. 30‑day money‑back guarantee applies to the Answer plan. Visitor identification is not offered to medical, legal, or financial‑services businesses.</p>
+  <p class="terms-note">After‑Hours, Answer and Capture are month‑to‑month. Grow is a 12‑month agreement with the setup fee waived at renewal. Ad spend is paid by you directly to Meta and Google and is never included in our fees. 30‑day money‑back guarantee applies to the After‑Hours and Answer plans. Included minutes reset monthly; overage is billed per minute. Visitor identification is not offered to medical, legal, or financial‑services businesses.</p>
 </section>
 
 <!-- FAQ -->
@@ -551,8 +579,8 @@
     <div class="q"><button>Will the receptionist sound like a robot?</button><div class="a"><p>No. Callers hear a natural, conversational voice that answers questions and handles interruptions like a real front‑desk person. Most callers never realize it isn't human. When a caller needs a human, it transfers, takes a message, or flags it urgent — your choice, with full context attached.</p></div></div>
     <div class="q"><button>Can I keep my current number and my website?</button><div class="a"><p>Yes to both. We forward your existing number — nothing changes for customers — and the pixel is a single line of code that works on any website platform.</p></div></div>
     <div class="q"><button>Is ad spend included in the Grow plan?</button><div class="a"><p>No. You pay Meta and Google directly from your own ad accounts, which you own. Our fee covers strategy, build, management, creative, and reporting. We'll recommend a budget based on your market; most Grow clients spend $3,000–$15,000 a month on ads.</p></div></div>
-    <div class="q"><button>How long does setup take?</button><div class="a"><p>Answer goes live in 3–5 business days. Capture takes 7–10 days including pixel install, CRM build, and follow‑up sequences. Grow is typically 2–3 weeks to first campaign launch.</p></div></div>
-    <div class="q"><button>Is there a contract?</button><div class="a"><p>Answer and Capture are month‑to‑month, and Answer has a 30‑day money‑back guarantee. Grow is a 12‑month agreement because ad accounts and audiences need time to season — and we waive the setup fee when you renew. Either way, your CRM data, your contacts, and your ad accounts are yours.</p></div></div>
+    <div class="q"><button>How long does setup take?</button><div class="a"><p>After‑Hours and Answer go live in 3–5 business days. Capture takes 7–10 days including pixel install, CRM build, and follow‑up sequences. Grow is typically 2–3 weeks to first campaign launch.</p></div></div>
+    <div class="q"><button>Is there a contract?</button><div class="a"><p>After‑Hours, Answer and Capture are month‑to‑month, and After‑Hours and Answer have a 30‑day money‑back guarantee. Grow is a 12‑month agreement because ad accounts and audiences need time to season — and we waive the setup fee when you renew. Either way, your CRM data, your contacts, and your ad accounts are yours.</p></div></div>
   </div>
 </section>
 
@@ -572,7 +600,7 @@
     </div>
     <div class="frow">
       <div class="ffield"><label>Industry</label><select name="industry" required><option value="">Select your industry</option><option>Auto Repair / Collision</option><option>Auto Dealer</option><option>Home Services (HVAC, Plumbing, etc.)</option><option>Real Estate</option><option>Fitness / Wellness</option><option>Property Management</option><option>Medical / Dental</option><option>Law Firm</option><option>Other</option></select></div>
-      <div class="ffield"><label>Plan you're interested in</label><select name="plan" id="planSel"><option value="">Not sure yet</option><option>Answer</option><option>Capture</option><option>Grow</option><option>Enterprise / Dealer Group</option></select></div>
+      <div class="ffield"><label>Plan you're interested in</label><select name="plan" id="planSel"><option value="">Not sure yet</option><option>After-Hours</option><option>Answer</option><option>Capture</option><option>Grow</option><option>Enterprise / Dealer Group</option></select></div>
     </div>
     <div class="ffield"><label>Monthly call volume (estimate)</label><select name="call_volume"><option value="">Select range</option><option>Under 200 calls</option><option>200-500 calls</option><option>500-1,000 calls</option><option>1,000+ calls</option></select></div>
     <div class="ffield"><label>Anything else we should know?</label><textarea name="message" rows="3" placeholder="Tell us about your business..."></textarea></div>
@@ -585,7 +613,7 @@
 <footer>
   <div class="wrap footin">
     <div class="brand" style="font-size:17px"><span class="livedot"></span>DMI&nbsp;Flow</div>
-    <div class="flinks"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="#demo">Get a demo</a><a href="mailto:christian@autoshopreceptionist.com">Contact</a><a href="/privacy.html">Privacy</a></div>
+    <div class="flinks"><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="/dealers/">Car Dealers</a><a href="#demo">Get a demo</a><a href="mailto:christian@autoshopreceptionist.com">Contact</a><a href="/privacy.html">Privacy</a></div>
     <span>© 2026 DMI Flow · Lead recovery for local business.</span>
   </div>
 </footer>
